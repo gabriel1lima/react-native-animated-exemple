@@ -65,7 +65,7 @@ export default function Basket(props) {
   return (
     <>
 
-      <StatusBar barStyle="light-content" backgroundColor="rgba(0, 0, 0, 0.6)" />        
+      <StatusBar barStyle="light-content" backgroundColor="#9a0001" />
 
       { 
 
@@ -101,22 +101,12 @@ export default function Basket(props) {
                     extrapolate: 'clamp',
                   }),
                 }],
-                // borderTopLeftRadius: translateY.interpolate({
-                //   inputRange: [-430, 0],
-                //   outputRange: [0, 20],
-                //   extrapolate: 'clamp',
-                // }),
-                // borderTopRightRadius: translateY.interpolate({
-                //   inputRange: [-430, 0],
-                //   outputRange: [0, 20],
-                //   extrapolate: 'clamp',
-                // }),
               },
             ]}
           >
             {
               <Animated.View style={{width: '100%', height: '12.5%', backgroundColor: '#d3222a', opacity: translateY.interpolate({
-                inputRange: [-430 ,0],
+                inputRange: [-280, 0],
                 outputRange: [0, 1],
                 extrapolate: 'clamp',
               }),}}>

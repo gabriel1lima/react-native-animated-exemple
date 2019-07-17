@@ -10,7 +10,7 @@ export default class Main extends Component {
   render() {
     return (
       <Container>
-        <Header>
+        <Header style={{backgroundColor: '#d3222a'}}>
           <Left>
             <Button transparent>
               <Icon name='arrow-back' />
