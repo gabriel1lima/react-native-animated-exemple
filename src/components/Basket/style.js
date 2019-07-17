@@ -12,11 +12,12 @@ const styles = StyleSheet.create({
   },
   popup: {
     backgroundColor: "#FFF",
-    borderTopLeftRadius: 30,
-    borderTopRightRadius: 30,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
     minHeight: '80%',
     top: '70%',
-    alignItems: "center",
+    overflow: 'hidden',
+    // alignItems: "center",
     // justifyContent: "center",
 
     // borderWidth: 2,

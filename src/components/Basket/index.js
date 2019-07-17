@@ -1,6 +1,7 @@
 import React, { Component, useState } from 'react';
 import { Animated, View, Text, StatusBar, StyleSheet } from 'react-native';
 import { PanGestureHandler, State, TouchableOpacity } from 'react-native-gesture-handler';
+import Icon from 'react-native-vector-icons/Feather';
 import styles from './style';
 
 export default function Basket(props) {
@@ -95,8 +96,23 @@ export default function Basket(props) {
             ]}
           >
 
-            <View style={{width: 40, height: 5, backgroundColor: 'rgba(0,0,0,.2)', marginTop: 10, borderRadius: 2.5}}></View>
-            <Text style={{fontWeight: 'bold', color: 'black'}}>{props.nome}</Text>
+            <View style={{width: '100%', height: 100, backgroundColor: '#d3222a'}}>
+              <View style={{width: 40, height: 5, backgroundColor: 'rgba(255,255,255,.8)', marginTop: 10, borderRadius: 2.5, alignSelf: 'center'}}></View>
+
+              <View style={{marginHorizontal: 15, marginTop: 10, flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
+                
+                <View style={{position: 'absolute', left: 0}}>
+                  <Icon name="shopping-bag" size={23} color="#FFF" />
+                  <View style={{width: 15, height: 15, backgroundColor: 'white', borderRadius: 7.5, position: 'absolute', right: -6, top: -4, justifyContent: 'center', alignItems: 'center'}}>
+                    <Text style={{color: '#d3222a', fontSize: 10, fontWeight: 'bold'}}>1</Text>
+                  </View>
+                </View>
+                
+                
+                <Text style={{fontWeight: 'bold', color: 'white'}}>{props.nome}</Text>
+                <Text style={{fontWeight: 'bold', color: 'white', position: 'absolute', right: 0}}>R$ 22,00</Text>
+              </View>
+            </View>
             
           </Animated.View>
         </PanGestureHandler>
