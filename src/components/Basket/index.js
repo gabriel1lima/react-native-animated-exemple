@@ -41,7 +41,7 @@ export default function Basket(props) {
       
       Animated.timing(translateY, {
         toValue: opened ? -430 : 0,
-        duration: Math.abs(translationY) <= 50.00 ? Math.abs(translationY)+200 : Math.abs(translationY),
+        duration: Math.abs(translationY) <= 100.00 ? Math.abs(translationY)+150.00 : Math.abs(translationY),
         useNativeDriver: true,
       }).start(() => {
         setVisible(opened)
@@ -96,7 +96,7 @@ export default function Basket(props) {
             ]}
           >
 
-            <View style={{width: '100%', height: 100, backgroundColor: '#d3222a'}}>
+            <View style={{width: '100%', height: '12.5%', backgroundColor: '#d3222a'}}>
               <View style={{width: 40, height: 5, backgroundColor: 'rgba(255,255,255,.8)', marginTop: 10, borderRadius: 2.5, alignSelf: 'center'}}></View>
 
               <View style={{marginHorizontal: 15, marginTop: 10, flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>

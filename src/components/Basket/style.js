@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFF",
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
-    minHeight: '80%',
+    height: '80%',
     top: '70%',
     overflow: 'hidden',
     // alignItems: "center",
