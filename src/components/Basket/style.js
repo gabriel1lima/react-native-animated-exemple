@@ -3,17 +3,24 @@ import {
 } from 'react-native';
 
 const styles = StyleSheet.create({
-  content: {
-    position: 'absolute',
-    bottom: 0,
-    width: '100%',
-    height: '80%',
-    alignItems: 'center',
-    // borderWidth: 2,
-    // borderColor: 'red',
-    backgroundColor: '#FFF',
+  sheet: {
+    position: "absolute",
+    left: 0,
+    right: 0,
+    height: "100%",
+    justifyContent: "flex-end",
+  },
+  popup: {
+    backgroundColor: "#FFF",
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
+    minHeight: '80%',
+    top: '70%',
+    alignItems: "center",
+    // justifyContent: "center",
+
+    // borderWidth: 2,
+    // borderColor: 'red',
 
     shadowColor: "#000",
     shadowOffset: {
