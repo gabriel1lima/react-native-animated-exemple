@@ -31,6 +31,22 @@ export default function Basket(props) {
 
   let offset = 0;
 
+  function opacity(inputRange, outputRange) {
+    return translateY.interpolate({
+      inputRange,
+      outputRange,
+      extrapolate: 'clamp',
+    }) 
+  }
+
+  function transformY(inputRange, outputRange) {
+    return translateY.interpolate({
+      inputRange,
+      outputRange,
+      extrapolate: 'clamp',
+    })
+  }
+
   function onHandlerStateChanged(event) {
     setVisible(true)
 
@@ -50,7 +66,7 @@ export default function Basket(props) {
       
       Animated.timing(translateY, {
         toValue: opened ? -430 : 0,
-        duration: Math.abs(translationY) <= 100.00 ? Math.abs(translationY)+150.00 : Math.abs(translationY),
+        duration: Math.abs(translationY) <= 100.00 ? Math.abs(translationY)+250.00 : Math.abs(translationY),
         useNativeDriver: true,
       }).start(() => {
         setVisible(opened)
@@ -68,21 +84,9 @@ export default function Basket(props) {
       <StatusBar barStyle="light-content" backgroundColor="#9a0001" />
 
       { 
-
         visible &&
         <Animated.View 
-          style={
-            [
-              StyleSheet.absoluteFill, 
-              { 
-                backgroundColor: "rgba(0,0,0,.7)", 
-                opacity: translateY.interpolate({
-                  inputRange: [-430, 0],
-                  outputRange: [1, 0]
-                }), 
-              },
-            ]
-          }
+          style={[ StyleSheet.absoluteFill, { backgroundColor: "rgba(0,0,0,.7)", opacity: opacity([-430, 0], [1, 0]) } ]}
         />
       }
 
@@ -92,24 +96,12 @@ export default function Basket(props) {
           onHandlerStateChange={onHandlerStateChanged}
         >
           <Animated.View 
-            style={[
-              styles.popup,
-              { transform: [{
-                  translateY: translateY.interpolate({
-                    inputRange: [-430 ,0],
-                    outputRange: [-430, 0],
-                    extrapolate: 'clamp',
-                  }),
-                }],
-              },
-            ]}
+            style={[ styles.popup, { transform: [{ translateY: transformY([-430 ,0], [-430, 0]) }] } ]}
           >
             {
-              <Animated.View style={{width: '100%', height: '12.5%', backgroundColor: '#d3222a', opacity: translateY.interpolate({
-                inputRange: [-280, 0],
-                outputRange: [0, 1],
-                extrapolate: 'clamp',
-              }),}}>
+              <Animated.View
+                style={{width: '100%', height: '12.5%', backgroundColor: '#d3222a', opacity: opacity([-430, 0], [0, 1]), transform: [{ translateY: transformY([-430, 0], [-75, 0]) }] }}
+              >
                 <View style={{width: 40, height: 5, backgroundColor: 'rgba(255,255,255,.8)', marginTop: 10, borderRadius: 2.5, alignSelf: 'center'}}></View>
 
                 <View style={{marginHorizontal: 15, marginTop: 10, flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
@@ -128,11 +120,9 @@ export default function Basket(props) {
               </Animated.View>
             }
 
-            <Animated.View style={{width: '100%', alignItems: 'center',  position: 'absolute', opacity: translateY.interpolate({
-                inputRange: [-430, -150],
-                outputRange: [1, 0],
-                extrapolate: 'clamp',
-              }),}}>
+            <Animated.View
+              style={{width: '100%', height: 300, backgroundColor: '#d8d8d8', alignItems: 'center', opacity: opacity([-430, 0], [1, 0]), transform: [{ translateY: transformY([-430, 0], [-75, 0]) }] }}
+            >
               <Text>OPA</Text>
             </Animated.View>
 
