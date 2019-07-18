@@ -2,6 +2,7 @@ import React, { Component, useState } from 'react';
 import { Animated, View, Text, StatusBar, StyleSheet, Dimensions } from 'react-native';
 import { PanGestureHandler, State, TouchableOpacity } from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/Feather';
+import Badge from '../Badge';
 import styles from './style';
 
 export default function Basket(props) {
@@ -98,27 +99,25 @@ export default function Basket(props) {
           <Animated.View 
             style={[ styles.popup, { transform: [{ translateY: transformY([-430 ,0], [-430, 0]) }] } ]}
           >
-            {
-              <Animated.View
-                style={{width: '100%', height: '12.5%', backgroundColor: '#d3222a', opacity: opacity([-430, 0], [0, 1]), transform: [{ translateY: transformY([-430, 0], [-75, 0]) }] }}
-              >
-                <View style={{width: 40, height: 5, backgroundColor: 'rgba(255,255,255,.8)', marginTop: 10, borderRadius: 2.5, alignSelf: 'center'}}></View>
 
-                <View style={{marginHorizontal: 15, marginTop: 10, flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
-                  
-                  <View style={{position: 'absolute', left: 0}}>
-                    <Icon name="shopping-bag" size={23} color="#FFF" />
-                    <View style={{width: 15, height: 15, backgroundColor: 'white', borderRadius: 7.5, position: 'absolute', right: -6, top: -4, justifyContent: 'center', alignItems: 'center'}}>
-                      <Text style={{color: '#d3222a', fontSize: 10, fontWeight: 'bold'}}>1</Text>
-                    </View>
-                  </View>
-                  
-                  
-                  <Text style={{fontWeight: 'bold', color: 'white'}}>{props.nome}</Text>
-                  <Text style={{fontWeight: 'bold', color: 'white', position: 'absolute', right: 0}}>R$ 22,00</Text>
+            <Animated.View
+              style={{width: '100%', height: '12.5%', backgroundColor: '#d3222a', opacity: opacity([-430, 0], [0, 1]), transform: [{ translateY: transformY([-430, 0], [-75, 0]) }] }}
+            >
+              <View style={{width: 40, height: 5, backgroundColor: 'rgba(255,255,255,.8)', marginTop: 10, borderRadius: 2.5, alignSelf: 'center'}}></View>
+
+              <View style={{marginHorizontal: 15, marginTop: 10, flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
+                
+                <View style={{position: 'absolute', left: 0}}>
+                  <Icon name="shopping-bag" size={23} color="#FFF" />
+
+                  <Badge quant={4} />
                 </View>
-              </Animated.View>
-            }
+                
+                
+                <Text style={{fontWeight: 'bold', color: 'white'}}>{props.nome}</Text>
+                <Text style={{fontWeight: 'bold', color: 'white', position: 'absolute', right: 0}}>R$ 22,00</Text>
+              </View>
+            </Animated.View>
 
             <Animated.View
               style={{width: '100%', height: 300, backgroundColor: '#d8d8d8', alignItems: 'center', opacity: opacity([-430, 0], [1, 0]), transform: [{ translateY: transformY([-430, 0], [-75, 0]) }] }}
